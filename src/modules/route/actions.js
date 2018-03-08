@@ -14,3 +14,7 @@ export function goToHome(){
 export function goToDetail(){
     return setRoute('detail');
 }
+
+export function goToCatalog(){
+    return setRoute('catalog');
+}

@@ -1,36 +1,49 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+import { loadCatalog, saveTerm } from '../modules/searchBar';
 
 class SearchBar extends Component {
 
-    constructor(){
+    constructor(props) {
         super(props);
-        this.handleSearch = this.handleSearch.bind(this);
-        this.updateSearchTerm = this.updateSearchTerm.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSearchTerm = this.handleSearchTerm.bind(this);
     }
 
-    handleSearch(){
-
+    handleSearchTerm(value) {
+        this.props.saveTerm(value);
     }
 
-    updateSearchTerm(){
-
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.props.searchTerm);
+        this.props.loadCatalog(this.props.searchTerm);
     }
 
     render() {
         return (
-            <form onSubmit={(event) => this.handleSearch(event)}>
-                <input 
-                    onChange={(event) => this.updateSearchTerm(event.target.value)}
-                />
-                <button>Search</button>
-          </form>
+            <form onSubmit={(event) => this.handleSubmit(event)}>
+                <input onChange={(event) => this.handleSearchTerm(event.target.value)} />
+                <button type="submit">Search</button>
+            </form>
         )
     }
 }
 
 SearchBar.propTypes = {
-    
+
 }
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+    return {
+        searchTerm: state.searchBar
+    }
+}
+
+const mapDispathToProps = {
+    loadCatalog,
+    saveTerm
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(SearchBar);

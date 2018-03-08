@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Home from './home';
+import Catalog from './catalog';
+import Detail from './detail';
+import SearchBar from './searchBar';
 
 class ItunesApp extends Component {
 
@@ -9,6 +12,10 @@ class ItunesApp extends Component {
         switch(page){
             case 'home':
                 return <Home />
+            case 'catalog':
+                return <Catalog />
+            case 'detail':
+                return <Detail />
         }
     }
 
@@ -16,7 +23,7 @@ class ItunesApp extends Component {
         const component = this.getComponent(this.props.route);
         return (
             <div className="itunes-app">
-                
+              <SearchBar></SearchBar>  
               {component}  
             </div>
         )

@@ -1,0 +1,1 @@
+export const SAVE_CATALOG = "SAVE_CATALOG";
