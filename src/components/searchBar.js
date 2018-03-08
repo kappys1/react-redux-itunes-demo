@@ -17,16 +17,21 @@ class SearchBar extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.props.searchTerm);
-        this.props.loadCatalog(this.props.searchTerm);
+        if(this.props.searchTerm.length > 0){
+            this.props.loadCatalog(this.props.searchTerm);
+        }
+        
     }
 
     render() {
         return (
-            <form onSubmit={(event) => this.handleSubmit(event)}>
-                <input onChange={(event) => this.handleSearchTerm(event.target.value)} />
-                <button type="submit">Search</button>
-            </form>
+            <div className="searchBar">
+                <form onSubmit={(event) => this.handleSubmit(event)}>
+                    <input onChange={(event) => this.handleSearchTerm(event.target.value)} />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
         )
     }
 }

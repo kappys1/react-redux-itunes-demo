@@ -1,0 +1,43 @@
+/******************************************************************
+
+Functions
+
+******************************************************************/
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+  
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+  
+    @return $string;
+  }
+  // =============================================================================
+  //
+  // Automatizar tamaños
+  //
+  // =============================================================================
+  $widthReference: 1920;
+  $heightReference: 1080;
+  
+  // =============================================================================
+  // get VW by PX -> Automatizar
+  // =============================================================================
+  @function getVwFromPx($target) {
+    $vw-context: ($widthReference * 0.01) * 1px;
+    @return ($target / $vw-context) * 1vw;
+  }
+  
+  // =============================================================================
+  // get VH by PX -> Automatizar
+  // =============================================================================
+  @function getVhFromPx($target) {
+    $vw-context: ($heightReference * 0.01) * 1px;
+    @return (($target / $vw-context) * 1vh);
+  }
+  
