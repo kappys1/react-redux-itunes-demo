@@ -16,6 +16,7 @@ class ItunesApp extends Component {
         const component = this.getComponent(this.props.route);
         return (
             <div className="itunes-app">
+                
               {component}  
             </div>
         )
