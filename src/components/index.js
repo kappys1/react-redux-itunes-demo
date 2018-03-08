@@ -16,6 +16,8 @@ class ItunesApp extends Component {
                 return <Catalog />
             case 'detail':
                 return <Detail />
+            default:
+                return <Home/>
         }
     }
 
