@@ -21,7 +21,7 @@ CatalogItem.propTypes = {
         trackName : PropTypes.string.isRequired,
         previewUrl : PropTypes.string.isRequired,
         artworkUrl100 : PropTypes.string.isRequired,
-        releaseDate : PropTypes.instanceOf(Date).isRequired,
+        releaseDate : PropTypes.string.isRequired,
         trackTimeMillis : PropTypes.number.isRequired, 
         trackPrice : PropTypes.number.isRequired,
         primaryGenreName : PropTypes.string.isRequired,

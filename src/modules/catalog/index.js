@@ -1,7 +1,9 @@
-import { SAVE_CATALOG } from './actionsTypes';
+import { combineReducers } from 'redux';
+
+import { SAVE_CATALOG, SET_FILTER_CATALOG } from './actionsTypes';
 export * from './actions'; 
 
-export default function catalog(state = [] , action){
+function list(state = [] , action){
     switch(action.type){
         case SAVE_CATALOG:
             return action.payload;
@@ -9,3 +11,16 @@ export default function catalog(state = [] , action){
             return state;
     }
 }
+function filter(state = "", action){
+    switch(action.type){
+        case SET_FILTER_CATALOG:
+            return action.filter;
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({
+    list,
+    filter
+})

@@ -25,6 +25,12 @@ $catalog-bar-icon-fontsize: 25px;
         .view-content{
             border-right: 1px solid $catalog-bar-icon-color-deactive;
         }
+        .dropdown{
+            background-color: $color2;
+            // display: none;
+            position: absolute;
+            top: 14vh;
+        }
         .icon{
             color:$catalog-bar-icon-color-deactive;
             font-size: getVhFromPx($catalog-bar-icon-fontsize);

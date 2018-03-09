@@ -1,1 +1,2 @@
 export const SAVE_CATALOG = "SAVE_CATALOG";
+export const SET_FILTER_CATALOG = "SET_FILTER_CATALOG";
