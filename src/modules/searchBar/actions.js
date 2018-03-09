@@ -16,9 +16,10 @@ export function loadCatalog(term) {
             .then((result) => {
                 return result.json();
             }).then((jsonResult) => {
-                dispatch(saveCatalog(jsonResult));
+                let result = jsonResult.results.filter(r => r.kind === 'song');
+                dispatch(saveCatalog(result));
                 dispatch(goToCatalog());
-                console.log(jsonResult);
+                console.log(result);
             }).catch(function () {
                 console.log("error");
                 dispatch(goToCatalog());

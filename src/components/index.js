@@ -32,7 +32,7 @@ class ItunesApp extends Component {
     }
 }
 
-ItunesApp.PropTypes = {
+ItunesApp.propTypes = {
     route : PropTypes.string.isRequired
 };
 

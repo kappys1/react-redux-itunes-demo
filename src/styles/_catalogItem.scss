@@ -1,0 +1,22 @@
+// $catalogItem-maxwidth: 400px;
+$catalogItem-list-width: 1080px;
+$catalogItem-grid-width: 350px;
+$catalogItem-margin: 20px;
+$catalogItem-margin: 20px;
+
+.catalogItem{
+    width: getVhFromPx($catalogItem-grid-width);
+    margin: $catalogItem-margin;
+    // max-width: getVhFromPx($catalogItem-maxwidth);
+    @include flex-content(column, center, flex-start);
+
+    .catalog-description{
+        width: 100%;
+        @include flex-content(column, flex-start, center);
+    }
+}
+.catalog.list{
+    .catalogItem{
+        width: getVhFromPx($catalogItem-list-width);
+    }
+}

@@ -6,11 +6,13 @@ $searchBar-input-fontsize: 25px;
 $searchBar-button-width: 100px;
 $searchBar-button-height: 30px;
 $searchBar-button-marginLeft: 30px;
-$searchBar-color-borders: #888 ;
+$searchBar-color-borders: $color3 ;
+$searchBar-color-background: $color2;
 .searchBar{
 
     @include flex-content(row, center, center );
     padding: getVhFromPx($searchBar-padding) 0;
+    background: $searchBar-color-background;
 
     input{
         width: getVwFromPx($searchBar-input-width);

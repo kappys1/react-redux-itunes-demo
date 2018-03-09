@@ -1,0 +1,8 @@
+$home-logo-size: 300px;
+
+.home{
+    @include flex-content(row, center, flex-start);
+    .logo{
+        font-size: getVhFromPx($home-logo-size)
+    }
+}

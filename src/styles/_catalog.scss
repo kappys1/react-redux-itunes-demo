@@ -1,0 +1,37 @@
+$catalog-padding: 100px;
+
+//---
+$catalog-bar-height: 50px;
+$catalog-bar-icon-color-active: $color5;
+$catalog-bar-icon-color-deactive: $color3;
+$catalog-bar-icon-fontsize: 25px;
+
+.catalog{
+    .catalog-content{
+        padding: 0 $catalog-padding;
+        @include flex-content(row, flex-start, flex-start );
+        @include flex-wrap(wrap);
+    }
+    
+    .catalog-bar{
+        width: 100%;
+        background-color: $color2;
+        height: getVhFromPx($catalog-bar-height);
+        @include flex-content(row, center, flex-end );
+        .order-content,
+        .view-content{
+            margin-right: 2vh;
+        }
+        .view-content{
+            border-right: 1px solid $catalog-bar-icon-color-deactive;
+        }
+        .icon{
+            color:$catalog-bar-icon-color-deactive;
+            font-size: getVhFromPx($catalog-bar-icon-fontsize);
+            margin-right: 1vh;
+            &.active{
+                color:$catalog-bar-icon-color-active;
+            }
+        }
+    }
+}
