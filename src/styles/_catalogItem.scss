@@ -1,22 +1,94 @@
-// $catalogItem-maxwidth: 400px;
+
 $catalogItem-list-width: 1080px;
-$catalogItem-grid-width: 350px;
-$catalogItem-margin: 20px;
-$catalogItem-margin: 20px;
+$catalogItem-list-margin: 5px;
+$catalogItem-list-artist-fontsize:30px;
 
-.catalogItem{
-    width: getVhFromPx($catalogItem-grid-width);
-    margin: $catalogItem-margin;
-    // max-width: getVhFromPx($catalogItem-maxwidth);
-    @include flex-content(column, center, flex-start);
+$catalogItem-grid-width: 300px;
+$catalogItem-grid-margin: 20px;
+$catalogItem-grid-artist-fontsize:24px;
+$catalogItem-grid-subdescription-fontsize:21px;
 
-    .catalog-description{
-        width: 100%;
-        @include flex-content(column, flex-start, center);
+.catalog.list,
+.catalog.grid{
+
+    .catalogItem{
+        width: getVhFromPx($catalogItem-grid-width);
+        margin: getVhFromPx($catalogItem-grid-margin);
+        @include flex-content(column, center, flex-start);
+        .image-content{
+            @include flex-content(column, flex-end, flex-start);
+            width: 100%;
+            .catalog-image{
+                width: 100%;
+            }
+            .catalog-subimage{
+                @include flex-content(row,center, space-between);
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                padding: 0.5vh 0vh;
+                bottom: 2.8vh;
+                color: white;
+                background: rgba(0,0,0,0.8);
+                span{
+                    margin: 0 1vh;
+                    font-size: getVhFromPx($catalogItem-grid-subdescription-fontsize);
+
+                }
+            }
+        }
+
+        .catalog-description{
+            @include flex-content(column, flex-start, center);
+            width: 100%;
+            
+            .artist-name{
+                font-weight: 900;
+                font-size: getVhFromPx($catalogItem-grid-artist-fontsize);
+            }
+
+            .collection-name{
+                margin-top:1vh;
+            }
+
+            .catalog-subdescription{
+                color:$color5;
+                font-size: getVhFromPx($catalogItem-grid-subdescription-fontsize);
+                div{
+                    margin: 0.5vh 0;
+                }
+            }
+        }
     }
 }
+
+
 .catalog.list{
+    .catalog-content{
+        @include flex-content(column, center, center );  
+    }
     .catalogItem{
         width: getVhFromPx($catalogItem-list-width);
+        @include flex-content(row, flex-start, flex-start);
+        margin: $catalogItem-list-margin!important;
+        .image-content{
+            width: 20vh!important;
+            margin-right: 3vh;
+        }
+
+        .catalog-description{
+            @include flex-content(column, flex-start, center);
+            width: 100%;
+            
+            .artist-name{
+                font-weight: 900;
+                font-size: getVhFromPx($catalogItem-list-artist-fontsize);
+            }
+
+            .catalog-subdescription{
+                margin-top:1vh;
+            }
+        }
+
     }
 }

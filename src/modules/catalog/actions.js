@@ -1,4 +1,4 @@
-import { SAVE_CATALOG, SET_FILTER_CATALOG } from './actionsTypes';
+import { SAVE_CATALOG, SET_FILTER_CATALOG, SET_VIEW_CATALOG } from './actionsTypes';
 
 
 export function saveCatalog(patch){
@@ -12,5 +12,12 @@ export function filterCatalog(filter){
     return{
         type: SET_FILTER_CATALOG,
         filter: filter
+    }
+}
+
+export function viewCatalog(view){
+    return{
+        type: SET_VIEW_CATALOG,
+        view: view
     }
 }
