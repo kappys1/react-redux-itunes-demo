@@ -34,19 +34,12 @@ $catalog-bar-icon-fontsize: 25px;
         .order-content{
             @include flex-content(row, center, flex-end ); 
         }
-        .dropdown{
-            @include flex-content(column, flex-end, flex-end );
-            background-color: $color2;
-            // display: none;
-            position: absolute;
-            top: 13.5vh;
-            right: 1vh;
-            width: 15vh;
-            padding: 2vh 3vh;
-            
-        }
+
+
+        .title-bar,
         .filterLink{
             margin-right: 1vh;
+            cursor: pointer;
         }
         .filterLink.active{
             font-weight: 900;

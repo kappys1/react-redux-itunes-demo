@@ -7,12 +7,15 @@ function millisToMinutesAndSeconds(millis) {
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
+function handlePlaySong (){
+
+}
 
 const CatalogItem = (props) => {
     const minutes = millisToMinutesAndSeconds(props.product.trackTimeMillis);
     const date = new Date(props.product.releaseDate).toLocaleDateString();
     return (
-        <div className="catalogItem">
+        <div className="catalogItem" onClick={handlePlaySong}>
             <div className="image-content">
                 <img className="catalog-image" src={props.product.artworkUrl100} alt={props.product.collectionName}/>
                 <div className="catalog-subimage">
@@ -44,6 +47,7 @@ CatalogItem.propTypes = {
         trackPrice : PropTypes.number.isRequired,
         primaryGenreName : PropTypes.string.isRequired,
     }),
+    playSong : PropTypes.func
 }
 
 export default CatalogItem;

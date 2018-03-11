@@ -15,6 +15,7 @@ $catalogItem-grid-subdescription-fontsize:21px;
         width: getVhFromPx($catalogItem-grid-width);
         margin: getVhFromPx($catalogItem-grid-margin);
         @include flex-content(column, center, flex-start);
+        cursor: pointer;
         .image-content{
             @include flex-content(column, flex-end, flex-start);
             width: 100%;

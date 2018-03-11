@@ -60,20 +60,19 @@ class Catalog extends Component {
             <div className={viewOrder}>
                 <div className="catalog-bar">
                     <div className="view-content">
-                        <span>View: </span>
+                        <span className="title-bar">View: </span>
                             <FilterLink filter="LIST" currentFilter={this.props.view} changeFilter={this.props.viewCatalog}> <FaThList className="icon"/> </FilterLink>         
                             <FilterLink filter="GRID"  currentFilter={this.props.view} changeFilter={this.props.viewCatalog}> <FaThLarge className="icon"/> </FilterLink>
                     </div>
                     <div className="order-content" >
                         <FaFilter className="icon active"/>
-                        <span>Order</span>              
-                    </div>
-                    <div className="dropdown">
+                        <span className="title-bar">Order: </span>   
                         <FilterLink filter="NONE" currentFilter={this.props.filter} changeFilter={this.props.filterCatalog}>Any</FilterLink>
                         <FilterLink filter="GENERE" currentFilter={this.props.filter} changeFilter={this.props.filterCatalog}>genere</FilterLink>
                         <FilterLink filter="PRICE" currentFilter={this.props.filter} changeFilter={this.props.filterCatalog}>price</FilterLink>
-                        <FilterLink filter="SONG_LENGTH" currentFilter={this.props.filter} changeFilter={this.props.filterCatalog}>song length</FilterLink>
+                        <FilterLink filter="SONG_LENGTH" currentFilter={this.props.filter} changeFilter={this.props.filterCatalog}>song length</FilterLink>           
                     </div>
+
                 </div>
                 <div className="catalog-content">
                     {catalogItemHtml}
