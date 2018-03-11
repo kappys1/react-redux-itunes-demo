@@ -1,4 +1,4 @@
-import { SAVE_PLAYLIST, SET_PLAY, SET_VIEW_CATALOG } from './actionsTypes';
+import { SAVE_PLAYLIST, SET_ACTUAL_PLAY } from './actionsTypes';
 
 
 export function savePlaylist(patch){
@@ -10,7 +10,7 @@ export function savePlaylist(patch){
 
 export function setActualPLay(num){
     return{
-        type: SET_PLAY,
+        type: SET_ACTUAL_PLAY,
         actual: num
     }
 }

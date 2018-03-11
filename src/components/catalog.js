@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { filterCatalog, viewCatalog } from '../modules/catalog';
+import { savePlaylist, setActualPLay } from '../modules/detail';
 import CatalogItem  from './catalogItem';
 import FilterLink  from './filterLink';
+import { goToDetail } from '../modules/route';
 
 import {FaThLarge, FaThList, FaFilter} from 'react-icons/lib/fa';
 
@@ -12,6 +14,7 @@ class Catalog extends Component {
     constructor(props){
         super(props);
         this.handlerFilterProduct = this.handlerFilterProduct.bind(this);
+        this.handleClickSong = this.handleClickSong.bind(this);
     }
 
     handlerFilterProduct(allCatalog,filter){
@@ -39,9 +42,16 @@ class Catalog extends Component {
         }
     } 
 
+    handleClickSong(index){
+        console.log(index);
+        this.props.savePlaylist(this.props.catalog);
+        this.props.setActualPLay(index);
+        this.props.goToDetail()
+    }
+
     render() {
         console.log(this.props.catalog,this.props.filter);
-       
+        
         let catalogItem = this.handlerFilterProduct( Object.assign([],this.props.catalog),this.props.filter);
         let catalogItemHtml = <div className='no-catalog'>No contents Availables</div>;
         if(catalogItem.length > 0){
@@ -50,7 +60,7 @@ class Catalog extends Component {
                 if(p.trackPrice < 0){
                     p.trackPrice = 0;
                 }
-                return <CatalogItem key={i} product={p}/>
+                return <CatalogItem key={i} index={i} product={p} onClickSong={this.handleClickSong}/>
             });
         }
 
@@ -93,7 +103,10 @@ const mapStateToProps = (state) => {
 
 const mapDispathToProps = {
     filterCatalog,
-    viewCatalog
+    viewCatalog,
+    goToDetail,
+    setActualPLay,
+    savePlaylist,
 }
 
 

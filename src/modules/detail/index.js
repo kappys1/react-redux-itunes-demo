@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { SAVE_PLAYLIST, SET_ACTUAL_PLAY } from './actionsTypes';
 export * from './actions'; 
 
-function playList(state = [] , action){
+function playlist(state = [] , action){
     switch(action.type){
         case SAVE_PLAYLIST:
             return action.payload;
@@ -22,6 +22,6 @@ function actualPlay(state = 0, action){
 }
 
 export default combineReducers({
-    playList,
+    playlist,
     actualPlay
 })
