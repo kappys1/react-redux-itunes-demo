@@ -4,29 +4,35 @@ $detail-page-size-autor:70px;
 $detail-page-size-album:40px;
 $detail-page-size-sharebutton:40px;
 .detail-page{
+    
     .back-page{
         position: absolute;
         top: 12vh;
         left: 2vw;
         cursor: pointer;
     }
+
     .detail-song-info-content{
         padding: 0 getVwFromPx($detail-page-padding);
         margin-top: getVhFromPx($detail-page-margin-top);
         @include flex-content(row,center, space-around);
+
         .detail-song-image-content{
             width: 50%;
             @include flex-content(row,center, space-around);
         }
+
         .detail-info{
             width: 50%;
             line-height: 1.3;
             @include flex-content(column,flex-start, center);
         }
+
         .detail-artist-song{
             font-size: getVwFromPx($detail-page-size-autor);
             font-weight: 900;
         }
+
         .detail-artist-name{
             color:$color4;
             font-size: getVwFromPx($detail-page-size-album);
@@ -35,6 +41,7 @@ $detail-page-size-sharebutton:40px;
         #twitter-icon{
             color:#00aced;
         }
+
         .social-icon{
             font-size: getVhFromPx($detail-page-size-sharebutton);
         }

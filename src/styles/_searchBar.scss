@@ -20,6 +20,7 @@ $searchBar-color-background: $color2;
         font-size: getVhFromPx($searchBar-input-fontsize);
         border: 1px solid $searchBar-color-borders;
     }
+
     button{
         width: getVhFromPx($searchBar-button-width);
         height: getVhFromPx($searchBar-button-height);
@@ -27,4 +28,5 @@ $searchBar-color-background: $color2;
         background-color: transparent;
         border: 1px solid $searchBar-color-borders;
     }
+    
 }

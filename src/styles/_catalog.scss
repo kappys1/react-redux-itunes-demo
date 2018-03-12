@@ -9,12 +9,14 @@ $catalog-bar-icon-color-deactive: $color3;
 $catalog-bar-icon-fontsize: 25px;
 
 .catalog{
+    
     .no-catalog{
         width: 100%;
         text-align: center;
         font-size: getVhFromPx($catalog-no-content-margin-fontsize);
         margin-top: getVhFromPx($catalog-no-content-margin-top);
     }
+
     .catalog-content{
         padding: 0 $catalog-padding;
         @include flex-content(row, flex-start, space-between  );
@@ -42,12 +44,12 @@ $catalog-bar-icon-fontsize: 25px;
             @include flex-content(row, center, flex-end ); 
         }
 
-
         .title-bar,
         .filterLink{
             margin-right: 1vh;
             cursor: pointer;
         }
+
         .filterLink.active{
             font-weight: 900;
             svg{
@@ -64,5 +66,6 @@ $catalog-bar-icon-fontsize: 25px;
                 color:$catalog-bar-icon-color-active;
             }
         }
+
     }
 }

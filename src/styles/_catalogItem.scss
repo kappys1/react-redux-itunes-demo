@@ -21,9 +21,11 @@ $catalogItem-grid-subdescription-fontsize:21px;
         .image-content{
             @include flex-content(column, flex-end, flex-start);
             width: 100%;
+
             .catalog-image{
                 width: 100%;
             }
+
             .catalog-subimage{
                 @include flex-content(row,center, space-between);
                 width: 100%;
@@ -39,6 +41,7 @@ $catalogItem-grid-subdescription-fontsize:21px;
 
                 }
             }
+            
         }
 
         .catalog-description{
@@ -91,6 +94,7 @@ $catalogItem-grid-subdescription-fontsize:21px;
             .catalog-subdescription{
                 margin-top:1vh;
             }
+            
         }
 
     }
