@@ -19,6 +19,7 @@ $catalog-bar-icon-fontsize: 25px;
 
     .catalog-content{
         padding: 0 $catalog-padding;
+        padding-top: 2%;
         @include flex-content(row, flex-start, space-between  );
         @include flex-wrap(wrap);
         //margin: 0 auto;
