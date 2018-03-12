@@ -4,6 +4,7 @@ $catalog-no-content-margin-fontsize: 30px;
 
 //---
 $catalog-bar-height: 50px;
+$catalog-bar-font-size: 21px;
 $catalog-bar-icon-color-active: $color5;
 $catalog-bar-icon-color-deactive: $color3;
 $catalog-bar-icon-fontsize: 25px;
@@ -48,6 +49,7 @@ $catalog-bar-icon-fontsize: 25px;
         .title-bar,
         .filterLink{
             margin-right: 1vh;
+            font-size: getVhFromPx($catalog-bar-font-size);
             cursor: pointer;
         }
 
