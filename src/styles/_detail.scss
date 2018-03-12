@@ -2,6 +2,7 @@ $detail-page-padding:100px;
 $detail-page-margin-top:150px;
 $detail-page-size-autor:70px;
 $detail-page-size-album:40px;
+$detail-page-size-sharebutton:40px;
 .detail-page{
     .back-page{
         position: absolute;
@@ -29,6 +30,13 @@ $detail-page-size-album:40px;
         .detail-artist-name{
             color:$color4;
             font-size: getVwFromPx($detail-page-size-album);
+        }
+
+        #twitter-icon{
+            color:#00aced;
+        }
+        .social-icon{
+            font-size: getVhFromPx($detail-page-size-sharebutton);
         }
     }
 }

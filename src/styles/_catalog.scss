@@ -1,4 +1,6 @@
 $catalog-padding: 20px;
+$catalog-no-content-margin-top: 200px;
+$catalog-no-content-margin-fontsize: 30px;
 
 //---
 $catalog-bar-height: 50px;
@@ -7,7 +9,12 @@ $catalog-bar-icon-color-deactive: $color3;
 $catalog-bar-icon-fontsize: 25px;
 
 .catalog{
-
+    .no-catalog{
+        width: 100%;
+        text-align: center;
+        font-size: getVhFromPx($catalog-no-content-margin-fontsize);
+        margin-top: getVhFromPx($catalog-no-content-margin-top);
+    }
     .catalog-content{
         padding: 0 $catalog-padding;
         @include flex-content(row, flex-start, space-between  );

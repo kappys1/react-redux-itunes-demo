@@ -11,7 +11,7 @@ export function saveTerm(term) {
 
 export function loadCatalog(term) {
     return (dispatch, getState) => {
-        console.log(term);
+        
         fetch('https://itunes.apple.com/search?term=' + term)
             .then((result) => {
                 return result.json();
@@ -19,7 +19,6 @@ export function loadCatalog(term) {
                 let result = jsonResult.results.filter(r => r.kind === 'song');
                 dispatch(saveCatalog(result));
                 dispatch(goToCatalog());
-                console.log(result);
             }).catch(function () {
                 console.log("error");
                 dispatch(goToCatalog());

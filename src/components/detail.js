@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AudioPlayer from './audioPlayer';
 import { setActualPLay } from '../modules/detail';
 import { goToCatalog } from '../modules/route';
-import {FaAngleLeft} from 'react-icons/lib/fa';
+import {FaAngleLeft, FaTwitter } from 'react-icons/lib/fa';
 import LazyLoad from 'react-lazyload';
-
 class Detail extends Component {
 
     constructor(props){
@@ -40,12 +38,13 @@ class Detail extends Component {
     render() {
         const song = Object.assign({},this.props.playlist[this.props.actualSong]);
         const date = new Date(song.releaseDate).toLocaleDateString();
+        const shareText= `http://twitter.com/share?text=I'm listening ${song.trackName} - ${song.artistName}`;
         return (
             <div className="detail-page">
                 <div className="back-page" onClick={this.handleBack}><FaAngleLeft/> Back</div>
                 <div className="detail-song-info-content">
                     <div className="detail-song-image-content"> 
-                    <LazyLoad>
+                    <LazyLoad once>
                         <img src={song.artworkUrl300} alt="" className="src"/>
                     </LazyLoad>
                          
@@ -58,7 +57,12 @@ class Detail extends Component {
                         <div className="detail-date"><b>Time: </b>{ song.trackTime }</div> 
                         <div className="detail-date"><b>Price: </b>{ song.trackPrice }€</div> 
                         <div className="detail-date"><b>Date: </b>{ date }</div> 
+                        <div className="detail-social">
+                            <a href={shareText} >
+                                <FaTwitter id="twitter-icon" className="social-icon"/> 
+                            </a>
                             
+                        </div>
                     </div>
                 </div>
                 <div className="detail-reproductor">

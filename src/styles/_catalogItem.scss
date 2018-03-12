@@ -102,7 +102,10 @@ $catalogItem-grid-subdescription-fontsize:21px;
         }
     }
     .catalog.grid{
-
+       
+        .catalog-content{
+            @include flex-content(column, center, center);
+        }
         .catalogItem{
             width: getVhFromPx($catalogItem-grid-width-xs);
         }

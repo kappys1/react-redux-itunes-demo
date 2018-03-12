@@ -2,10 +2,12 @@ import React  from 'react'
 import PropTypes from 'prop-types'
 
 const FilterLink = ({filter, changeFilter, currentFilter, children}) => {
+    
     const handleChangeFilter = e =>{
         e.preventDefault();
         changeFilter(filter);
     }
+
     if(currentFilter === filter){
         return (
             <div className="filterLink active">

@@ -1,5 +1,6 @@
 import React  from 'react'
 import PropTypes from 'prop-types'
+import LazyLoad from 'react-lazyload';
 
 
 
@@ -10,9 +11,11 @@ const CatalogItem = (props) => {
 
     return (
         <div className="catalogItem" onClick={handleClickSong}>
-            
+
             <div className="image-content">
-                <img className="catalog-image" src={props.product.artworkUrl100} alt={props.product.collectionName}/>
+                <LazyLoad>
+                    <img className="catalog-image" src={props.product.artworkUrl100} alt={props.product.collectionName}/>
+                </LazyLoad>
                 <div className="catalog-subimage">
                     <span>{props.product.trackTime}</span>
                     <span>{props.product.trackPrice}€</span>
@@ -42,7 +45,7 @@ CatalogItem.propTypes = {
         trackPrice : PropTypes.number.isRequired,
         primaryGenreName : PropTypes.string.isRequired,
     }),
-    onClickSong : PropTypes.func
+    onClickSong : PropTypes.func.isRequired
 }
 
 export default CatalogItem;

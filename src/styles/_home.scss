@@ -1,8 +1,13 @@
 $home-logo-size: 300px;
+$home-logo-title: 100px;
 
 .home{
-    @include flex-content(row, center, flex-start);
+    @include flex-content(row, center, center);
+    height: 80vh;
     .logo{
-        font-size: getVhFromPx($home-logo-size)
+        font-size: getVwFromPx($home-logo-size);
+    }
+    .title{
+        font-size: getVwFromPx($home-logo-title);
     }
 }
