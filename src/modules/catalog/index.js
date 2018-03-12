@@ -8,15 +8,16 @@ export * from './actions';
 function list(state = [] , action){
     switch(action.type){
         case SAVE_CATALOG:
-            action.payload.map( (p,i) => {
+            let payload =  action.payload.map(p => {
                 p.artworkUrl200 = p.artworkUrl100.replace("100x100","200x200");
                 p.artworkUrl300 = p.artworkUrl100.replace("100x100","300x300");
                 p.trackTime = millisToMinutesAndSeconds(p.trackTimeMillis);
                 if(p.trackPrice < 0){
                     p.trackPrice = 0;
                 }
+                return p;
             });
-            return action.payload;
+            return payload;
         default:
             return state;
     }

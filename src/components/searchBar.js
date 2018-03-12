@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { loadCatalog, saveTerm } from '../modules/searchBar';
 
@@ -36,9 +35,6 @@ class SearchBar extends Component {
     }
 }
 
-SearchBar.propTypes = {
-
-}
 
 const mapStateToProps = (state) => {
     return {

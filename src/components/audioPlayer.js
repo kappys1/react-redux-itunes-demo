@@ -64,7 +64,12 @@ class AudioPlayer extends Component {
                 this.setState({currentTime: this.audio.currentTime});
 				this.slider.value = this.audio.currentTime;
 			}, 500);
-		};
+        };
+        
+        this.onended = function() {
+            this.handleFordward();
+        };
+
 		
 		this.audio.onpause = () => {
 			clearInterval(this.currentTimeInterval);

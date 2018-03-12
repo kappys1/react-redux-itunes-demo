@@ -1,4 +1,4 @@
-import { LOAD_CATALOG, SAVE_TERM } from './actionsTypes';
+import { SAVE_TERM } from './actionsTypes';
 import { goToCatalog } from '../route'
 import { saveCatalog } from '../catalog'
 
