@@ -11,7 +11,7 @@ export function saveTerm(term) {
 
 export function loadCatalog(term) {
     return (dispatch, getState) => {
-        
+        // todo: put Loading Here!
         fetch('https://itunes.apple.com/search?term=' + term)
             .then((result) => {
                 return result.json();
