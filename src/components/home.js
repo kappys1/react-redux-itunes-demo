@@ -6,7 +6,7 @@ class Home extends Component {
         return (
             <div className="home">
                 <FaApple className="logo"/> 
-                <span className="title">Apple Music Preview</span>
+                <span className="title">iTunes Preview</span>
             </div>
         )
     }
