@@ -44,7 +44,7 @@ class Detail extends Component {
                 <div className="back-page" onClick={this.handleBack}><FaAngleLeft/> Back</div>
                 <div className="detail-song-info-content">
                     <div className="detail-song-image-content"> 
-                    <LazyLoad once>
+                    <LazyLoad once height={200}>
                         <img src={song.artworkUrl300} alt="" className="src"/>
                     </LazyLoad>
                          

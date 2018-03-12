@@ -1,7 +1,7 @@
 $detail-page-padding:100px;
 $detail-page-margin-top:150px;
-$detail-page-size-autor:70px;
-$detail-page-size-album:40px;
+$detail-page-size-autor:50px;
+$detail-page-size-album:32px;
 $detail-page-size-sharebutton:40px;
 .detail-page{
     
@@ -21,7 +21,9 @@ $detail-page-size-sharebutton:40px;
             width: 50%;
             @include flex-content(row,center, space-around);
         }
-
+        .detail-name{
+            margin-top: 2vh;
+        }
         .detail-info{
             width: 50%;
             line-height: 1.3;
@@ -40,6 +42,7 @@ $detail-page-size-sharebutton:40px;
 
         #twitter-icon{
             color:#00aced;
+            margin-top: 1vh;
         }
 
         .social-icon{

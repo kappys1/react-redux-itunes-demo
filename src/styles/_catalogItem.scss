@@ -5,12 +5,14 @@ $catalogItem-list-margin: 5px;
 $catalogItem-list-artist-fontsize:25px;
 $catalogItem-list-image-width:180px;
 
-$catalogItem-grid-width: 300px;
+$catalogItem-grid-width: 250px;
 $catalogItem-grid-width-xs: 500px;
 $catalogItem-grid-margin: 20px;
 $catalogItem-grid-artist-fontsize:20px;
 $catalogItem-grid-subdescription-fontsize:16px;
 $catalogItem-grid-subimage-fontsize:15px;
+
+
 
 .catalog.list,
 .catalog.grid{
@@ -25,7 +27,8 @@ $catalogItem-grid-subimage-fontsize:15px;
             width: 100%;
 
             .catalog-image{
-                width: 100%;
+                width: getVhFromPx($catalogItem-grid-width);
+                height: getVhFromPx($catalogItem-grid-width);
             }
 
             .catalog-subimage{
@@ -79,9 +82,14 @@ $catalogItem-grid-subimage-fontsize:15px;
         width: getVwFromPx($catalogItem-list-width);
         @include flex-content(row, flex-start, flex-start);
         margin: $catalogItem-list-margin!important;
+
         .image-content{
             width: getVhFromPx($catalogItem-list-image-width)!important;
             margin-right: 3vh;
+        }
+        .catalog-image{
+            width: getVhFromPx($catalogItem-list-image-width)!important;
+            height: getVhFromPx($catalogItem-list-image-width)!important
         }
 
         .catalog-description{
