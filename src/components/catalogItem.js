@@ -10,6 +10,7 @@ const CatalogItem = (props) => {
 
     return (
         <div className="catalogItem" onClick={handleClickSong}>
+            
             <div className="image-content">
                 <img className="catalog-image" src={props.product.artworkUrl100} alt={props.product.collectionName}/>
                 <div className="catalog-subimage">

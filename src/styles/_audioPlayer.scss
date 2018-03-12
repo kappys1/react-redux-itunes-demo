@@ -1,0 +1,70 @@
+$audio-player-height:120px;
+$audio-player-icons:40px;
+$audio-player-control-margin:20px;
+
+.audio-player{
+    position: fixed;
+    width: 100%;
+    bottom:0;
+    height: getVhFromPx($audio-player-height);
+    .row-controls,
+    .row-slider{
+        text-align: center;
+        @include flex-content(row, center, center);
+    }
+
+    .row-slider input{
+        width: 80%;
+        
+    }
+
+    .row-controls{
+        font-size: getVhFromPx($audio-player-icons);
+        margin-top: getVhFromPx($audio-player-control-margin);
+        .icon-control{
+            margin-right: 3vw;
+            cursor: pointer;
+        }
+    }
+
+        /*Chrome*/
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        input[type='range'] {
+        overflow: hidden;
+        -webkit-appearance: none;
+        background-color: $color2;
+        }
+        
+        input[type='range']::-webkit-slider-runnable-track {
+        height: 10px;
+        -webkit-appearance: none;
+        color: $color4;
+        margin-top: -1px;
+        }
+        
+        input[type='range']::-webkit-slider-thumb {
+        width: 10px;
+        -webkit-appearance: none;
+        height: 10px;
+        cursor: pointer;
+        background: $color3;
+        box-shadow: -1920px 0 0 1920px $color4;
+        }
+
+    }
+    /** FF*/
+    input[type="range"]::-moz-range-progress {
+    background-color: $color4; 
+    }
+    input[type="range"]::-moz-range-track {  
+    background-color: $color2;
+    }
+    /* IE*/
+    input[type="range"]::-ms-fill-lower {
+    background-color: $color4; 
+    }
+    input[type="range"]::-ms-fill-upper {  
+    background-color: $color2;
+    }
+
+}

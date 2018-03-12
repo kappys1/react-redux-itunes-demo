@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AudioPlayer from './audioPlayer';
 import { setActualPLay } from '../modules/detail';
+import { goToCatalog } from '../modules/route';
+import {FaAngleLeft} from 'react-icons/lib/fa';
+import LazyLoad from 'react-lazyload';
 
 class Detail extends Component {
 
@@ -11,6 +14,12 @@ class Detail extends Component {
 
         this.handleBackWard = this.handleBackWard.bind(this);
         this.handleForward = this.handleForward.bind(this);
+        this.handleBack = this.handleBack.bind(this);
+    }
+
+    handleBack(){
+        console.log("hola");
+        this.props.goToCatalog()
     }
 
     handleBackWard() {
@@ -29,20 +38,34 @@ class Detail extends Component {
     }
 
     render() {
-        console.log("render detail");
         const song = Object.assign({},this.props.playlist[this.props.actualSong]);
-        console.log(song);
+        const date = new Date(song.releaseDate).toLocaleDateString();
         return (
             <div className="detail-page">
-                <div className="detail-song-image-content"> </div>
+                <div className="back-page" onClick={this.handleBack}><FaAngleLeft/> Back</div>
                 <div className="detail-song-info-content">
-                    <div className="detail-info"></div>
-                    <div className="detail-reproductor">
+                    <div className="detail-song-image-content"> 
+                    <LazyLoad>
+                        <img src={song.artworkUrl300} alt="" className="src"/>
+                    </LazyLoad>
+                         
+                    </div>
+                    <div className="detail-info">
+                        <div className="detail-artist-song">{song.trackName}</div>
+                        <div className="detail-artist-name">{song.artistName}</div>
+                        <div className="detail-name"><b>Album: </b>{ song.collectionName}</div>
+                        <div className="detail-genere"><b>Genere: </b>{ song.primaryGenreName}</div>
+                        <div className="detail-date"><b>Time: </b>{ song.trackTime }</div> 
+                        <div className="detail-date"><b>Price: </b>{ song.trackPrice }€</div> 
+                        <div className="detail-date"><b>Date: </b>{ date }</div> 
+                            
+                    </div>
+                </div>
+                <div className="detail-reproductor">
                         <div className="playsong">
                             <AudioPlayer onFordwardClick={this.handleForward} onBackwardClick={this.handleBackWard} src={song.previewUrl}></AudioPlayer>
                         </div>
                     </div>
-                </div>
             </div>
         )
     }
@@ -56,7 +79,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispathToProps = {
-    setActualPLay
+    setActualPLay,
+    goToCatalog
 }
 
 export default connect(mapStateToProps, mapDispathToProps)(Detail);

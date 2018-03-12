@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {FaPlay, FaPause, FaStop, FaForward, FaBackward} from 'react-icons/lib/fa';
+import {millisToMinutesAndSeconds} from '../helpers';
+
 
 class AudioPlayer extends Component {
     constructor(props) {
@@ -8,6 +10,7 @@ class AudioPlayer extends Component {
         
         this.state = {
             duration: null,
+            currentTime: null,
             playing: false
         }
         
@@ -42,23 +45,23 @@ class AudioPlayer extends Component {
         this.audio.currentTime = 0;
         this.slider.value = 0;
         this.audio.pause(); 
+        this.setState({currentTime: this.audio.currentTime});
         this.setState({playing: false});
     }
 
     componentDidMount() {
         this.slider.value = 0;
-    
 		this.currentTimeInterval = null;
 		this.duration = 0;
-		// Get duration of the song and set it as max slider value
-		this.audio.onloadedmetadata = function() {
+
+        this.audio.onloadedmetadata = function() {
             this.setState({duration: this.audio.duration});
             console.log(this.duration);
 		}.bind(this);
 		
-		// Sync slider position with song current time
 		this.audio.onplay = () => {
 			this.currentTimeInterval = setInterval( () => {
+                this.setState({currentTime: this.audio.currentTime});
 				this.slider.value = this.audio.currentTime;
 			}, 500);
 		};
@@ -69,35 +72,38 @@ class AudioPlayer extends Component {
 		
 		// Seek functionality
 		this.slider.onchange = (e) => {
-            clearInterval(this.currentTimeInterval);
+            //clearInterval(this.currentTimeInterval);
+            this.setState({currentTime: this.audio.currentTime});
 			this.audio.currentTime = e.target.value;
 		};
 	}
+    
+    componentWillUnmount(){
+        clearInterval(this.currentTimeInterval); 
+    }
 
     render() {
         const src = this.props.src;
-        const playButton = this.state.playing ? <FaPause onClick={ this.handlePause } />  :  <FaPlay onClick={ this.handlePlay } />
+        const playButton = this.state.playing ? 
+            <FaPause className="icon-control"onClick={ this.handlePause } />  :  
+            <FaPlay className="icon-control"onClick={ this.handlePlay } />
         return (
-            <div>
-            <audio ref={(audio) => { this.audio = audio }} src={src} />
-            <div className="row-slider">
-                <input ref={(slider) => { this.slider = slider }}
-					type="range"
-					name="points"
-					min="0" max={this.state.duration}/> 
-            </div>
-            <div className="row-controls">
-                <FaBackward onClick={ this.handleBackward }/>
-                {playButton}
-                <FaStop onClick={ this.handleStop } />
-                <FaForward onClick={ this.handleFordward }/>
-            </div>
-            
-			
-			
-			
-
-
+            <div className="audio-player">
+                <audio ref={(audio) => { this.audio = audio }} src={src} />
+                <div className="row-slider">
+                    <span>{millisToMinutesAndSeconds(this.state.currentTime*1000)}</span>
+                    <input ref={(slider) => { this.slider = slider }}
+                        type="range"
+                        name="points"
+                        min="0" max={this.state.duration}/> 
+                    <span>{millisToMinutesAndSeconds(this.state.duration*1000)}</span>
+                </div>
+                <div className="row-controls">
+                    <FaBackward className="icon-control" onClick={ this.handleBackward }/>
+                    {playButton}
+                    <FaStop className="icon-control" onClick={ this.handleStop } />
+                    <FaForward className="icon-control" onClick={ this.handleFordward }/>
+                </div>
             </div>
         )
     }
