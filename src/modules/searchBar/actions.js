@@ -1,5 +1,5 @@
 import { SAVE_TERM } from './actionsTypes';
-import { goToCatalog } from '../route'
+import { goToCatalog,goToLoading } from '../route'
 import { saveCatalog } from '../catalog'
 
 export function saveTerm(term) {
@@ -12,6 +12,7 @@ export function saveTerm(term) {
 export function loadCatalog(term) {
     return (dispatch, getState) => {
         // todo: put Loading Here!
+        dispatch(goToLoading());
         fetch('https://itunes.apple.com/search?term=' + term)
             .then((result) => {
                 return result.json();

@@ -5,6 +5,7 @@ import Home from './home';
 import Catalog from './catalog';
 import Detail from './detail';
 import SearchBar from './searchBar';
+import Loading from './loading';
 
 class ItunesApp extends Component {
 
@@ -16,6 +17,8 @@ class ItunesApp extends Component {
                 return <Catalog />
             case 'detail':
                 return <Detail />
+            case 'loading':
+                return <Loading />
             default:
                 return <Home/>
         }

@@ -18,3 +18,7 @@ export function goToDetail(){
 export function goToCatalog(){
     return setRoute('catalog');
 }
+
+export function goToLoading(){
+    return setRoute('loading');
+}
