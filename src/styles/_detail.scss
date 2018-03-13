@@ -1,7 +1,16 @@
-$detail-page-padding:100px;
-$detail-page-margin-top:150px;
-$detail-page-size-autor:50px;
-$detail-page-size-album:32px;
+$detail-page-padding:1rem;
+$detail-page-margin-top:20vh;
+$detail-page-margin-top-xs:5vh;
+$detail-page-cover-size:350px;
+$detail-page-cover-size-xs:60%;
+$detail-page-detail-info-width:35%;
+$detail-page-detail-info-width-xs:100%;
+$detail-page-detail-info-margin-top-xs:3vh;
+$detail-page-cover-margin-rigth:5vw;
+$detail-page-size-autor:45px;
+$detail-page-size-album:30px;
+$detail-page-size-detail-info:22px;
+$detail-page-size-detail-info-xs:22px;
 $detail-page-size-sharebutton:40px;
 .detail-page{
     
@@ -13,31 +22,38 @@ $detail-page-size-sharebutton:40px;
     }
 
     .detail-song-info-content{
-        padding: 0 getVwFromPx($detail-page-padding);
-        margin-top: getVhFromPx($detail-page-margin-top);
-        @include flex-content(row,center, space-around);
+        padding: 0 $detail-page-padding;
+        margin-top: $detail-page-margin-top;
+        @include flex-content(row,center, center);
 
         .detail-song-image-content{
-            width: 50%;
+            width: $detail-page-cover-size;
+            margin-right: $detail-page-cover-margin-rigth;
+            background-color: #ccc;
             @include flex-content(row,center, space-around);
+            img{
+                width:100%;
+                border: 1px solid #eee;
+            }
         }
         .detail-name{
             margin-top: 2vh;
         }
         .detail-info{
-            width: 50%;
+            width: $detail-page-detail-info-width;
             line-height: 1.3;
             @include flex-content(column,flex-start, center);
+            font-size: getVhFromPx($detail-page-size-detail-info);
         }
 
         .detail-artist-song{
-            font-size: getVwFromPx($detail-page-size-autor);
+            font-size: getVhFromPx($detail-page-size-autor);
             font-weight: 900;
         }
 
         .detail-artist-name{
             color:$color4;
-            font-size: getVwFromPx($detail-page-size-album);
+            font-size: getVhFromPx($detail-page-size-album);
         }
 
         #twitter-icon{
@@ -49,4 +65,21 @@ $detail-page-size-sharebutton:40px;
             font-size: getVhFromPx($detail-page-size-sharebutton);
         }
     }
+}
+@media only screen and (max-width: 600px) {
+    .detail-page{
+        .detail-song-info-content{
+            @include flex-content(column,center, center);
+            margin-top: $detail-page-margin-top-xs;
+            .detail-info{
+                width: $detail-page-detail-info-width-xs;
+                margin-top: $detail-page-detail-info-margin-top-xs;
+            }
+            .detail-song-image-content{  
+                width: $detail-page-cover-size-xs!important;
+                max-width: 200px;
+            } 
+        }
+
+    } 
 }

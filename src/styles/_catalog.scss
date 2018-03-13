@@ -1,13 +1,13 @@
-$catalog-padding: 20px;
+$catalog-padding: 1em;
 $catalog-no-content-margin-top: 200px;
 $catalog-no-content-margin-fontsize: 30px;
 
 //---
-$catalog-bar-height: 50px;
-$catalog-bar-font-size: 19px;
+$catalog-bar-height: 45px;
+$catalog-bar-font-size: 17.5px;
 $catalog-bar-icon-color-active: $color5;
 $catalog-bar-icon-color-deactive: $color3;
-$catalog-bar-icon-fontsize: 25px; 
+$catalog-bar-icon-fontsize: 23px; 
 
 .catalog{
     
@@ -21,7 +21,7 @@ $catalog-bar-icon-fontsize: 25px;
     .catalog-content{
         padding: 0 $catalog-padding;
         padding-top: 2%;
-        @include flex-content(row, flex-start, space-between  );
+        @include flex-content(row, flex-start, space-around);
         @include flex-wrap(wrap);
         //margin: 0 auto;
 

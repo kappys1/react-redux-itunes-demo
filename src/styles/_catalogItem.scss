@@ -1,14 +1,17 @@
 
-$catalogItem-list-width: 900px;
-$catalogItem-list-width-xs: 1800px;
-$catalogItem-list-margin: 5px;
+$catalogItem-list-width: 50%;
+$catalogItem-list-width-xs: 95%;
+$catalogItem-list-image-size: 140px;
+$catalogItem-list-image-size-xs: 125px;
+$catalogItem-list-margin: 0.2em;
 $catalogItem-list-artist-fontsize:25px;
-$catalogItem-list-image-width:180px;
 
-$catalogItem-grid-width: 250px;
-$catalogItem-grid-width-xs: 500px;
-$catalogItem-grid-margin: 20px;
-$catalogItem-grid-artist-fontsize:20px;
+$catalogItem-grid-width: 14%;
+$catalogItem-grid-width-xs: 60%;
+$catalogItem-grid-image-size: 250px;
+$catalogItem-grid-image-size-xs: 250px;
+$catalogItem-grid-margin: 1.5em;
+$catalogItem-grid-artist-fontsize:18px;
 $catalogItem-grid-subdescription-fontsize:16px;
 $catalogItem-grid-subimage-fontsize:15px;
 
@@ -18,17 +21,17 @@ $catalogItem-grid-subimage-fontsize:15px;
 .catalog.grid{
 
     .catalogItem{
-        width: getVhFromPx($catalogItem-grid-width);
-        margin: getVhFromPx($catalogItem-grid-margin);
-        @include flex-content(column, center, flex-start);
+        width: $catalogItem-grid-width;
+        margin: $catalogItem-grid-margin;
+        @include flex-content(column, flex-start, flex-start);
         cursor: pointer;
         .image-content{
             @include flex-content(column, flex-end, flex-start);
-            width: 100%;
-
+            
             .catalog-image{
-                width: getVhFromPx($catalogItem-grid-width);
-                height: getVhFromPx($catalogItem-grid-width);
+               width: getVhFromPx($catalogItem-grid-image-size);
+               height: getVhFromPx($catalogItem-grid-image-size);
+               background-color: #ccc;
             }
 
             .catalog-subimage{
@@ -36,14 +39,13 @@ $catalogItem-grid-subimage-fontsize:15px;
                 width: 100%;
                 position: relative;
                 z-index: 2;
-                padding: 0.5vh 0vh;
-                bottom: 2.6vh;
+                padding: 0.2em 0vh;
+                bottom: 1.1em;
                 color: white;
                 background: rgba(0,0,0,0.8);
                 span{
                     margin: 0 1vh;
                     font-size: getVhFromPx($catalogItem-grid-subimage-fontsize);
-
                 }
             }
             
@@ -59,14 +61,14 @@ $catalogItem-grid-subimage-fontsize:15px;
             }
 
             .collection-name{
-                margin-top:1vh;
+                margin-top:1em;
             }
 
             .catalog-subdescription{
                 color:$color5;
                 font-size: getVhFromPx($catalogItem-grid-subdescription-fontsize);
                 div{
-                    margin: 0.5vh 0;
+                    margin: 0.5em 0;
                 }
             }
         }
@@ -79,17 +81,16 @@ $catalogItem-grid-subimage-fontsize:15px;
         @include flex-content(column, center, center );  
     }
     .catalogItem{
-        width: getVwFromPx($catalogItem-list-width);
+        width: $catalogItem-list-width;
         @include flex-content(row, flex-start, flex-start);
         margin: $catalogItem-list-margin!important;
 
         .image-content{
-            width: getVhFromPx($catalogItem-list-image-width)!important;
             margin-right: 3vh;
-        }
-        .catalog-image{
-            width: getVhFromPx($catalogItem-list-image-width)!important;
-            height: getVhFromPx($catalogItem-list-image-width)!important
+            .catalog-image{
+                width: $catalogItem-list-image-size!important;
+                height: $catalogItem-list-image-size!important;
+            }
         }
 
         .catalog-description{
@@ -102,7 +103,7 @@ $catalogItem-grid-subimage-fontsize:15px;
             }
 
             .catalog-subdescription{
-                margin-top:1vh;
+                margin-top:1em;
             }
             
         }
@@ -112,7 +113,12 @@ $catalogItem-grid-subimage-fontsize:15px;
 @media only screen and (max-width: 600px) {
     .catalog.list{
         .catalogItem{
-            width: getVwFromPx($catalogItem-list-width-xs);
+            width: $catalogItem-list-width-xs;
+            .image-content .catalog-image{
+                    width: $catalogItem-list-image-size-xs!important;
+                    height: $catalogItem-list-image-size-xs!important;
+                
+            }
         }
     }
     .catalog.grid{
@@ -121,7 +127,11 @@ $catalogItem-grid-subimage-fontsize:15px;
             @include flex-content(column, center, center);
         }
         .catalogItem{
-            width: getVhFromPx($catalogItem-grid-width-xs);
+            width: $catalogItem-grid-width-xs;
+            .catalog-image{
+                width:$catalogItem-grid-image-size-xs!important;
+                height:$catalogItem-grid-image-size-xs!important; 
+             }
         }
     }
 }
